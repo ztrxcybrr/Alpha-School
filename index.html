@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha School</title>
+    <meta name="description" content="Découvrez Alpha School, un établissement d'enseignement de qualité à Rabat, Maroc.">
+    <meta name="keywords" content="école, éducation, Rabat, Maroc, excellence académique, Alpha School">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #1z3865;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0a3865; /* Dark blue */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 5%;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #1D72B8; /* Blue */
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 43, 91, 0.8), rgba(0, 43, 91, 0.8)), url('images/logo.png') no-repeat center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 5%;
+            animation: fadeIn 1.5s ease-in-out;
+            margin-top: 80px; /* Offset header */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #1D72B8; /* Blue */
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #005691; /* Darker blue */
+        }
+
+        /* Section Styles */
+        section {
+            background-color: white;
+            border-radius: 10px;
+            margin: 30px auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 1200px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section h2 {
+            color: #002B5B; /* Dark blue */
+            margin-bottom: 20px;
+        }
+
+        section p {
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* Gallery */
+        .gallery-container {
+            text-align: center;
+            margin: 30px auto;
+            width: 100%; /* Reduced to allow more space */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-items {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item {
+            width: 30%;
+            max-width: 100%; /* Ensure images are responsive within the container */
+            border-radius: 10px;
+            margin: 0 10px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            filter: brightness(0.9);
+        }
+
+        /* Contact Section */
+        #contact iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Team Section */
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            width: 300px;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .team-member h3 {
+            color: #002B5B;
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .team-member p {
+            color: #333;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #002B5B; /* Dark blue */
+            color: white;
+            text-align: center;
+            padding: 15px 5%;
+            margin-top: auto;
+        }
+
+        footer a {
+            color: #1D72B8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #005691;
+        }
+
+        /* Animated Phrases */
+        .phrases-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 2rem;
+            color: #a9a9a9;
+            font-weight: bold;
+            white-space: nowrap;
+            opacity: 0;
+            animation: fadeInOut 15s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.6);
+            }
+            10% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            25% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            40% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.4);
+            }
+        }
+
+        /* Phrases content */
+        .phrase {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-btn {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .gallery-container {
+                width: 100%;
+            }
+
+            .team-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Alpha School</h1>
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#apropos">À propos</a>
+            <a href="#galerie">Galerie</a>
+            <a href="#equipe">Équipe</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>Bienvenue à Alpha School</h2>
+        <p>Notre Centre offre un environnement stimulant où chaque élève peut développer ses compétences académiques, sociales et personnelles. Nos programmes sont conçus pour encourager l'esprit d'initiative, la créativité et la rigueur, tout en préparant les étudiants aux défis de demain.</p>
+    </div>
+
+    <div class="phrases-container">
+        <div class="phrase active">Alpha School est le centre de l'éducation d'excellence, accompagnant les élèves du collège et lycée.</div>
+        <div class="phrase">Alpha School, centre d'apprentissage, offre un cadre d'excellence pour les collégiens et lycéens.</div>
+        <div class="phrase">Alpha School garantit un soutien scolaire de haut niveau pour les élèves du collège et du lycée.</div>
+    </div>
+
+    <section id="apropos">
+        <h2>À propos de nous</h2>
+        <p>Alpha School est un établissement éducatif de renom, dédié à l'excellence académique et au développement global des élèves. Nous proposons un environnement d'apprentissage stimulant pour les niveaux collège et lycée, avec des programmes adaptés pour favoriser la réussite scolaire, la créativité et la responsabilité.</p>
+    </section>
+
+    <section id="galerie">
+        <h2>Galerie</h2>
+        <div class="gallery-container">
+            <div class="gallery-items">
+                <img src="prof/prof2.jpg" alt="Événement 1" class="gallery-item">
+                <img src="photo2.jpg" alt="Événement 2" class="gallery-item">
+                <img src="photo3.jpg" alt="Événement 3" class="gallery-item">
+            </div>
+        </div>
+    </section>
+
+    <section id="equipe">
+        <h2>Notre Équipe</h2>
+        <div class="team-container">
+            <div class="team-member">
+<img src="prof/prof1.jpg" alt="Mohammed Fettah, Founder of Alpha School" />
+                <h3>Mohammed Fettah</h3>
+                <p>Founder of Alpha School /Prof math</p>
+            </div>
+            <div class="team-member">
+                <img src="prof/prof2.jpg" alt="Logo" />
+                <h3>Oumeima Asbahi</h3>
+                <p>Prof Français</p>
+            </div>
+            <div class="team-member">
+                <img src="prof/prof3.jpg" alt="Logo" />
+                <h3>Mehdi</h3>
+                <p>Prof Physique Chimie</p>
+            </div>
+            <div class="team-member">
+                <img src="prof/prof4.jpg" alt="Logo" />
+                <h3>Soufiane Ghoufir</h3>
+                <p>Prof d'économie</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact et Localisation</h2>
+        <p><strong>Numéro Téléphone : 0661322388</strong>
+        <p><strong>Adresse :2eme ETAGE، N39 Avenue Al Boustane, Rabat 10200</strong><p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.3483142151726!2d-6.822403837624835!3d33.98358602139949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b4cd793bbb7%3A0x20402df19b8d0c9f!2sAlpha%20School!5e0!3m2!1sen!2sma!4v1732813837389!5m2!1sen!2sma" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <footer>
+        <p>Suivez-nous sur <a href="https://www.instagram.com/alphaaa_school/" target="_blank">Instagram</a></p>
+        <p>&copy; 2024 Alpha School - Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        const phrases = document.querySelectorAll('.phrase');
+        let currentIndex = 0;
+
+        function cyclePhrases() {
+            phrases.forEach(phrase => phrase.classList.remove('active'));
+            phrases[currentIndex].classList.add('active');
+            currentIndex = (currentIndex + 1) % phrases.length;
+        }
+
+        setInterval(cyclePhrases, 6000); // Change every 6 seconds
+    </script>
+    <script>
+        const navLinks = document.querySelectorAll('nav a');
+
+        function smoothScroll(targetId) {
+            const targetElement = document.getElementById(targetId);
+            const offsetTop = targetElement.offsetTop;
+
+            window.scrollTo({
+                top: offsetTop,
+                behavior:   
+                      'smooth'
+            });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                smoothScroll(targetId);   
+
+            });
+        });
+    </script>
+</body>
+</html>
+
+</body>
+
+</html>
