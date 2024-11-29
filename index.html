@@ -133,15 +133,26 @@
             }
         }
 
-        section h2 {
-            color: #002B5B; /* Dark blue */
-            margin-bottom: 20px;
-        }
+/* Improved Section Heading (h2) */
+section h2 {
+    color: #3c8be3; /* Cyan */
+    margin-bottom: 20px; /* Added spacing for better separation */
+    font-family: 'Roboto', sans-serif; /* Added a more modern font */
+    font-weight: 700; /* Bold for emphasis */
+    font-size: 2rem; /* Increased font size for prominence */
+    text-transform: uppercase; /* Capitalize for a more formal look */
+    letter-spacing: 1px; /* Spacing between letters for better readability */
+}
 
-        section p {
-            line-height: 1.8;
-            color: #333;
-        }
+/* Improved Section Paragraph (p) */
+section p {
+    line-height: 1.8; /* Increased line height for better readability */
+    color: #555; /* Slightly lighter color for a softer look */
+    font-size: 1.1rem; /* Slightly larger font size for better readability */
+    margin-bottom: 20px; /* Added spacing between paragraphs */
+    font-family: 'Open Sans', sans-serif; /* Clean font for body text */
+    text-align: justify; /* Justify text for better alignment in paragraphs */
+}
         /* Gallery */
 .gallery-container {
     text-align: center;
@@ -281,7 +292,7 @@
         /* Animated Phrases */
         .phrases-container {
             position: absolute;
-            top: 40%;
+            top: 60%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
@@ -526,6 +537,7 @@ function scrollGallery(direction) {
         gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
 }
+</script>
 <script>
 // Pause animation on hover
 document.querySelector('.team-container').addEventListener('mouseover', () => {
