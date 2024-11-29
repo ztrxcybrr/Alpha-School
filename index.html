@@ -115,10 +115,10 @@
         /* Section Styles */
         section {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 15px;
             margin: 30px auto;
-            padding: 30px;
-            width: 90%;
+            padding: 20px;
+            width: 89%;
             max-width: 1200px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             opacity: 0;
@@ -142,33 +142,61 @@
             line-height: 1.8;
             color: #333;
         }
-
         /* Gallery */
-        .gallery-container {
-            text-align: center;
-            margin: 30px auto;
-            width: 100%; /* Reduced to allow more space */
-            overflow: hidden;
-            position: relative;
-        }
+.gallery-container {
+    text-align: center;
+    margin: 30px auto;
+    width: 100%; /* Ensures the gallery takes up full width */
+    overflow: hidden;
+    position: relative; /* For positioning the buttons */
+}
 
-        .gallery-items {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
+.gallery-items {
+    display: flex;
+    transition: transform 0.5s ease;
+    overflow: hidden; /* Hide any content that overflows */
+}
 
-        .gallery-item {
-            width: 30%;
-            max-width: 100%; /* Ensure images are responsive within the container */
-            border-radius: 10px;
-            margin: 0 10px;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
+.gallery-item {
+    width: 30%;
+    max-width: 100%; /* Makes images responsive */
+    border-radius: 10px;
+    margin: 0 10px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
 
-        .gallery-item:hover {
-            transform: scale(1.05);
-            filter: brightness(0.9);
-        }
+.gallery-item:hover {
+    transform: scale(1.15);
+    filter: brightness(0.9);
+}
+
+/* Navigation Buttons */
+.gallery-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 2rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-button.left {
+    left: -9px;
+}
+
+.gallery-button.right {
+    right: -9px;
+}
+
+.gallery-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
         /* Contact Section */
         #contact iframe {
@@ -352,16 +380,26 @@
         <p>Alpha School est un établissement éducatif de renom, dédié à l'excellence académique et au développement global des élèves. Nous proposons un environnement d'apprentissage stimulant pour les niveaux collège et lycée, avec des programmes adaptés pour favoriser la réussite scolaire, la créativité et la responsabilité.</p>
     </section>
 
-    <section id="galerie">
-        <h2>Galerie</h2>
-        <div class="gallery-container">
-            <div class="gallery-items">
-                <img src="images/logo.png" alt="Événement 1" class="gallery-item">
-                <img src="images/logo.png" alt="Événement 2" class="gallery-item">
-                <img src="images/logo.png" alt="Événement 3" class="gallery-item">
-            </div>
+<section id="galerie">
+    <h2>Galerie</h2>
+    <div class="gallery-container">
+        <!-- Left Navigation Button -->
+        <button class="gallery-button left" onclick="scrollGallery('left')">❮</button>
+        
+        <!-- Gallery Items -->
+        <div class="gallery-items">
+            <video src="videos/alpha_video.mp4" class="gallery-item" controls></video>
+            <img src="images/logo.png" alt="Événement 2" class="gallery-item">
+            <img src="images/logo.png" alt="Événement 2" class="gallery-item">
+            <img src="images/logo.png" alt="Événement 2" class="gallery-item">
+            <img src="images/logo.png" alt="Événement 2" class="gallery-item">
         </div>
-    </section>
+        
+        <!-- Right Navigation Button -->
+        <button class="gallery-button right" onclick="scrollGallery('right')">❯</button>
+    </div>
+</section>
+
 
     <section id="equipe">
         <h2>Notre Équipe</h2>
@@ -436,6 +474,18 @@
             });
         });
     </script>
+    <script>
+function scrollGallery(direction) {
+    const gallery = document.querySelector('.gallery-items');
+    const scrollAmount = gallery.clientWidth / 2; // Scroll by half the container's width
+
+    if (direction === 'left') {
+        gallery.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else if (direction === 'right') {
+        gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}
+</script>
 </body>
 </html>
 
