@@ -206,44 +206,58 @@
             border-radius: 10px;
         }
 
-        /* Team Section */
-        .team-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-        }
+/* Team Container */
+.team-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 30px;
+}
 
-        .team-member {
-            width: 300px;
-            text-align: center;
-            background-color: #f4f4f4;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+.team-items {
+    display: flex;
+    animation: scroll-left 20s linear infinite;
+    transition: transform 0.5s ease;
+}
 
-        .team-member img {
-            width: 100%;
-            border-radius: 10px;
-        }
+.team-member {
+    flex-shrink: 0;
+    width: 250px; /* Adjust the width of each team member */
+    text-align: center;
+    padding: 10px;
+    margin-right: 20px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
 
-        .team-member h3 {
-            color: #002B5B;
-            margin-top: 10px;
-            font-size: 1.2rem;
-        }
+.team-member img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
 
-        .team-member p {
-            color: #333;
-            font-size: 1rem;
-            margin-top: 5px;
-        }
+.team-member h3 {
+    margin-top: 10px;
+}
 
-        .team-member:hover {
-            transform: scale(1.05);
-        }
+.team-member:hover {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
+/* Hover Effect - Stop the scroll */
+.team-container:hover .team-items {
+    animation-play-state: paused;
+}
+
+/* Keyframes for the continuous scroll effect */
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);  /* Start position */
+    }
+    to {
+        transform: translateX(-100%);  /* End position (scroll out of view) */
+    }
+}
 
         /* Footer */
         footer {
@@ -401,31 +415,53 @@
 </section>
 
 
-    <section id="equipe">
-        <h2>Notre Équipe</h2>
-        <div class="team-container">
+<section id="equipe">
+    <h2>Notre Équipe</h2>
+    <div class="team-container">
+        <div class="team-items">
+            <!-- Team member 1 -->
             <div class="team-member">
-<img src="prof/prof1.jpg" alt="Mohammed Fettah, Founder of Alpha School" />
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah" />
                 <h3>Mohammed Fettah</h3>
-                <p>Founder of Alpha School /Prof math</p>
+                <p>Founder of Alpha School / Prof math</p>
+            </div>
+            <!-- Team member 2 -->
+            <div class="team-member">
+                <img src="prof/prof2.jpg" alt="Oumeima Asbahi" />
+                <h3>Oumeima Asbahi</h3>
+                <p>Prof Français</p>
+            </div>
+            <!-- Team member 3 -->
+            <div class="team-member">
+                <img src="prof/prof3.jpg" alt="Mehdi" />
+                <h3>Mehdi</h3>
+                <p>Prof Physique Chimie</p>
+            </div>
+            <!-- Team member 4 -->
+            <div class="team-member">
+                <img src="prof/prof4.jpg" alt="Soufiane Ghoufir" />
+                <h3>Soufiane Ghoufir</h3>
+                <p>Prof d'économie</p>
+            </div>
+            <!-- Repeat members for infinite scrolling -->
+            <div class="team-member">
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah" />
+                <h3>Mohammed Fettah</h3>
+                <p>Founder of Alpha School / Prof math</p>
             </div>
             <div class="team-member">
-                <img src="prof/prof2.jpg" alt="Logo" />
+                <img src="prof/prof2.jpg" alt="Oumeima Asbahi" />
                 <h3>Oumeima Asbahi</h3>
                 <p>Prof Français</p>
             </div>
             <div class="team-member">
-                <img src="prof/prof3.jpg" alt="Logo" />
+                <img src="prof/prof3.jpg" alt="Mehdi" />
                 <h3>Mehdi</h3>
                 <p>Prof Physique Chimie</p>
             </div>
-            <div class="team-member">
-                <img src="prof/prof4.jpg" alt="Logo" />
-                <h3>Soufiane Ghoufir</h3>
-                <p>Prof d'économie</p>
-            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="contact">
         <h2>Contact et Localisation</h2>
@@ -485,6 +521,18 @@ function scrollGallery(direction) {
         gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
 }
+<script>
+// Pause animation on hover
+document.querySelector('.team-container').addEventListener('mouseover', () => {
+    const teamItems = document.querySelector('.team-items');
+    teamItems.style.animationPlayState = 'paused';
+});
+
+// Resume animation when mouse leaves
+document.querySelector('.team-container').addEventListener('mouseout', () => {
+    const teamItems = document.querySelector('.team-items');
+    teamItems.style.animationPlayState = 'running';
+});
 </script>
 </body>
 </html>
