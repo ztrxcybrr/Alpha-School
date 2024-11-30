@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,42 +28,55 @@
         }
 
         /* Header Styles */
-        header {
-            background-color: #0a3865; /* Dark blue */
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 5%;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-        }
+header {
+    background-color: #0a3865; /* Dark blue */
+    color: white;
+    display: flex;
+    align-items: center; /* Center align logo and text vertically */
+    justify-content: space-between;
+    padding: 15px 5%; /* Reduced padding for better spacing */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
 
-        header h1 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            font-size: 1.8rem;
-        }
+/* Styling for the header title */
+header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem; /* Adjusted font size for better fit */
+    display: flex;
+    align-items: center; /* Center the text and logo vertically */
+    margin: 0;
+}
 
-        nav {
-            display: flex;
-            gap: 20px;
-        }
+/* Styling for the logo */
+header .logo {
+    width: 30px; /* Adjust logo size */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between logo and text */
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-        }
+/* Navigation Styles */
+nav {
+    display: flex;
+    gap: 20px;
+}
 
-        nav a:hover {
-            color: #1D72B8; /* Blue */
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for nav links */
+nav a:hover {
+    color: #1D72B8; /* Light blue on hover */
+}
 
         /* Hero Section */
         .hero {
@@ -381,7 +393,10 @@ section p {
 
 <body>
     <header>
-        <h1>Alpha School</h1>
+        <h1>
+            <img src="images/logo.png" alt="Alpha School Logo" class="logo">
+            Alpha School
+        </h1>
         <nav>
             <a href="#accueil">Accueil</a>
             <a href="#apropos">À propos</a>
