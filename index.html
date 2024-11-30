@@ -304,43 +304,55 @@ section p {
         }
 
         /* Animated Phrases */
-        .phrases-container {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            font-size: 2rem;
-            color: #a9a9a9;
-            font-weight: bold;
-            white-space: nowrap;
-            opacity: 0;
-            animation: fadeInOut 15s infinite;
-        }
+.phrases-container {
+    position: relative;
+    width: 100%;
+    height: 120px; /* Adjust to your content's height */
+    overflow: hidden; /* Ensure smooth transitions */
+}
 
-        @keyframes fadeInOut {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.6);
-            }
-            10% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(0.8);
-            }
-            25% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
-            40% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(1.4);
-            }
-        }
+.phrase {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: fadeInOut 6s infinite;
+    text-align: center;
+    font-size: 1.6rem; /* Adjust as needed */
+    color: #1a73e8; /* Text color */
+    transition: opacity 0.5s ease-in-out;
+    font-family: fantasy;
+}
 
+.phrase.active {
+    opacity: 1;
+}
+
+/* Keyframe animation for phrases */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    15% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    85% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+       
         /* Phrases content */
         .phrase {
             display: none;
@@ -411,11 +423,26 @@ section p {
         <p>Notre Centre offre un environnement stimulant où chaque élève peut développer ses compétences académiques, sociales et personnelles. Nos programmes sont conçus pour encourager l'esprit d'initiative, la créativité et la rigueur, tout en préparant les étudiants aux défis de demain.</p>
     </div>
 
-    <div class="phrases-container">
-        <div class="phrase active">Alpha School est le centre de l'éducation d'excellence, accompagnant les élèves du collège et lycée.</div>
-        <div class="phrase">Alpha School, centre d'apprentissage, offre un cadre d'excellence pour les collégiens et lycéens.</div>
-        <div class="phrase">Alpha School garantit un soutien scolaire de haut niveau pour les élèves du collège et du lycée.</div>
+<div class="phrases-container">
+    <div class="phrase active">
+        Alpha School est le centre de l'éducation d'excellence, accompagnant les élèves du collège et lycée.
     </div>
+    <div class="phrase">
+        Alpha School, centre d'apprentissage, offre un cadre d'excellence pour les collégiens et lycéens.
+    </div>
+    <div class="phrase">
+        Alpha School garantit un soutien scolaire de haut niveau pour les élèves du collège et du lycée.
+    </div>
+    <div class="phrase">
+        Alpha School inspire les élèves à atteindre leur plein potentiel grâce à une pédagogie innovante et personnalisée.
+    </div>
+    <div class="phrase">
+        À Alpha School, l'excellence académique et le développement personnel vont de pair pour garantir la réussite des élèves.
+    </div>
+    <div class="phrase">
+        Rejoignez Alpha School, un établissement où chaque élève est accompagné pour exceller et s'épanouir.
+    </div>
+</div>
 
     <section id="apropos">
         <h2>À propos de nous</h2>
@@ -508,18 +535,33 @@ section p {
         <p>&copy; 2024 Alpha School - Tous droits réservés.</p>
     </footer>
 
-    <script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
         const phrases = document.querySelectorAll('.phrase');
+        const interval = 6000; // Change interval in milliseconds
         let currentIndex = 0;
 
+        if (phrases.length === 0) {
+            console.warn('No phrases found with the class .phrase.');
+            return;
+        }
+
+        // Function to cycle phrases
         function cyclePhrases() {
-            phrases.forEach(phrase => phrase.classList.remove('active'));
-            phrases[currentIndex].classList.add('active');
+            phrases.forEach((phrase, index) => {
+                phrase.classList.remove('active');
+                if (index === currentIndex) {
+                    phrase.classList.add('active');
+                }
+            });
             currentIndex = (currentIndex + 1) % phrases.length;
         }
 
-        setInterval(cyclePhrases, 6000); // Change every 6 seconds
-    </script>
+        // Initial activation and interval
+        cyclePhrases();
+        setInterval(cyclePhrases, interval);
+    });
+</script>
     <script>
         const navLinks = document.querySelectorAll('nav a');
 
