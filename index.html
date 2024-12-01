@@ -29,16 +29,15 @@
 
         /* Header Styles */
 header {
-    background-color: #0a3865; /* Dark blue */
+    background-color: #0a3865;
     color: white;
     display: flex;
-    align-items: center; /* Center align logo and text vertically */
+    align-items: center;
     justify-content: space-between;
-    padding: 17px 5%; /* Reduced padding for better spacing */
+    padding: 17px 5%;
     position: fixed;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease;
 }
 
 /* Styling for the header title */
@@ -195,7 +194,7 @@ section p {
 }
 
 .gallery-item:hover {
-    transform: scale(1.7);
+    transform: scale(1.2);
     filter: brightness(0.9);
 }
 
@@ -404,19 +403,20 @@ section p {
 </head>
 
 <body>
-    <header>
-        <h1>
-            <img src="images/logo.png" alt="Alpha School Logo" class="logo">
-            Alpha School
-        </h1>
-        <nav>
-            <a href="#accueil">Accueil</a>
-            <a href="#apropos">À propos</a>
-            <a href="#galerie">Galerie</a>
-            <a href="#equipe">Équipe</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<header>
+    <h1>
+        <img src="images/logo.png" alt="Alpha School Logo" class="logo">
+        Alpha School
+    </h1>
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#equipe">Équipe</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
 
     <div class="hero">
         <h2>Bienvenue à Alpha School</h2>
@@ -452,22 +452,19 @@ section p {
 <section id="galerie">
     <h2>Galerie</h2>
     <div class="gallery-container">
-        <!-- Left Navigation Button -->
         <button class="gallery-button left" onclick="scrollGallery('left')">❮</button>
-        
-        <!-- Gallery Items -->
         <div class="gallery-items">
             <video src="videos/alpha_video.mp4" class="gallery-item" controls></video>
+            <img src="images/gal1.png" alt="Événement 2" class="gallery-item">            
+            <img src="images/logo.png" alt="Événement 2" class="gallery-item">
             <img src="images/gal1.png" alt="Événement 2" class="gallery-item">
             <img src="images/logo.png" alt="Événement 2" class="gallery-item">
-            <img src="images/logo.png" alt="Événement 2" class="gallery-item">
-            <img src="images/logo.png" alt="Événement 2" class="gallery-item">
+            <img src="images/gal1.png" alt="Événement 2" class="gallery-item">
         </div>
-        
-        <!-- Right Navigation Button -->
         <button class="gallery-button right" onclick="scrollGallery('right')">❯</button>
     </div>
 </section>
+
 
 
 <section id="equipe">
@@ -588,7 +585,7 @@ section p {
     <script>
 function scrollGallery(direction) {
     const gallery = document.querySelector('.gallery-items');
-    const scrollAmount = gallery.clientWidth / 2; // Scroll by half the container's width
+    const scrollAmount = gallery.clientWidth / 2;
 
     if (direction === 'left') {
         gallery.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
