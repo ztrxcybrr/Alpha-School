@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
+<html lang="fr"><style class="adjust-screen-brightness" media="screen"></style><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha School</title>
     <link rel="icon" href="images/logo.png" type="image/x-icon">
     <meta name="description" content="Découvrez Alpha School, un établissement d'enseignement de qualité à Rabat, Maroc.">
     <meta name="keywords" content="école, éducation, Rabat, Maroc, excellence académique, Alpha School">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;family=Roboto:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
         * {
@@ -245,7 +243,7 @@ section p {
 .team-items {
     display: flex;
     gap: 20px; /* Adjust space between team members */
-    animation: scroll-continuous 10s linear infinite; /* Continuous scrolling */
+    animation: scroll-continuous 15s linear infinite; /* Continuous scrolling */
 }
 
 .team-member {
@@ -267,6 +265,39 @@ section p {
     transform: scale(1.05);
     filter: brightness(0.9);
 }
+
+/* Media query for tablets and smaller screens (<= 768px) */
+@media (max-width: 768px) {
+    .team-items {
+        gap: 15px; /* Reduce space between team members */
+    }
+
+    .team-member {
+        width: 200px; /* Reduce width of team members */
+    }
+}
+
+/* Media query for mobile screens (<= 480px) */
+@media (max-width: 480px) {
+    .team-items {
+        gap: 10px; /* Further reduce space */
+    }
+
+    .team-member {
+        width: 150px; /* Reduce width of team members */
+    }
+}
+
+/* Continuous scroll animation */
+@keyframes scroll-continuous {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 
 /* Keyframes for Infinite Scrolling */
 @keyframes scroll-continuous {
@@ -424,7 +455,7 @@ section p {
     </div>
 
 <div class="phrases-container">
-    <div class="phrase active">
+    <div class="phrase">
         Alpha School est le centre de l'éducation d'excellence, accompagnant les élèves du collège et lycée.
     </div>
     <div class="phrase">
@@ -439,7 +470,7 @@ section p {
     <div class="phrase">
         À Alpha School, l'excellence académique et le développement personnel vont de pair pour garantir la réussite des élèves.
     </div>
-    <div class="phrase">
+    <div class="phrase active">
         Rejoignez Alpha School, un établissement où chaque élève est accompagné pour exceller et s'épanouir.
     </div>
 </div>
@@ -454,7 +485,7 @@ section p {
     <div class="gallery-container">
         <button class="gallery-button left" onclick="scrollGallery('left')">❮</button>
         <div class="gallery-items">
-            <video src="videos/alpha_video.mp4" class="gallery-item" controls></video>
+            <video src="videos/alpha_video.mp4" class="gallery-item" controls=""></video>
             <img src="images/gal1.png" alt="Événement 2" class="gallery-item">            
             <img src="images/logo.png" alt="Événement 2" class="gallery-item">
             <img src="images/gal1.png" alt="Événement 2" class="gallery-item">
@@ -473,63 +504,95 @@ section p {
         <div class="team-items">
             <!-- Team member 1 -->
             <div class="team-member">
-                <img src="prof/prof1.jpg" alt="Mohammed Fettah" />
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah">
                 <h3>Mohammed Fettah</h3>
                 <p>Founder of Alpha School / Prof math</p>
             </div>
             <!-- Team member 2 -->
             <div class="team-member">
-                <img src="prof/prof2.jpg" alt="Oumeima Asbahi" />
+                <img src="prof/prof2.jpg" alt="Oumeima Asbahi">
                 <h3>Oumeima Asbahi</h3>
                 <p>Prof Français</p>
             </div>
             <!-- Team member 3 -->
             <div class="team-member">
-                <img src="prof/prof3.jpg" alt="Mehdi" />
+                <img src="prof/prof3.jpg" alt="Mehdi">
                 <h3>Mehdi</h3>
                 <p>Prof Physique Chimie</p>
             </div>
             <!-- Team member 4 -->
             <div class="team-member">
-                <img src="prof/prof4.jpg" alt="Soufiane Ghoufir" />
+                <img src="prof/prof4.jpg" alt="Soufiane Ghoufir">
                 <h3>Soufiane Ghoufir</h3>
                 <p>Prof d'économie</p>
             </div>
             <!-- Repeat members for infinite scrolling -->
             <div class="team-member">
-                <img src="prof/prof1.jpg" alt="Mohammed Fettah" />
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah">
                 <h3>Mohammed Fettah</h3>
                 <p>Founder of Alpha School / Prof math</p>
             </div>
             <div class="team-member">
-                <img src="prof/prof2.jpg" alt="Oumeima Asbahi" />
+                <img src="prof/prof2.jpg" alt="Oumeima Asbahi">
                 <h3>Oumeima Asbahi</h3>
                 <p>Prof Français</p>
             </div>
             <div class="team-member">
-                <img src="prof/prof3.jpg" alt="Mehdi" />
+                <img src="prof/prof3.jpg" alt="Mehdi">
                 <h3>Mehdi</h3>
                 <p>Prof Physique Chimie</p>
             </div>
             <div class="team-member">
-                <img src="prof/prof4.jpg" alt="Soufiane Ghoufir" />
+                <img src="prof/prof4.jpg" alt="Soufiane Ghoufir">
                 <h3>Soufiane Ghoufir</h3>
                 <p>Prof d'économie</p>
             </div>
-        </div>
+        <div class="team-member">
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah">
+                <h3>Mohammed Fettah</h3>
+                <p>Founder of Alpha School / Prof math</p>
+            </div><div class="team-member">
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah">
+                <h3>Mohammed Fettah</h3>
+                <p>Founder of Alpha School / Prof math</p>
+            </div><div class="team-member">
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah">
+                <h3>Mohammed Fettah</h3>
+                <p>Founder of Alpha School / Prof math</p>
+            </div><div class="team-member">
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah">
+                <h3>Mohammed Fettah</h3>
+                <p>Founder of Alpha School / Prof math</p>
+            </div><div class="team-member">
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah">
+                <h3>Mohammed Fettah</h3>
+                <p>Founder of Alpha School / Prof math</p>
+            </div><div class="team-member">
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah">
+                <h3>Mohammed Fettah</h3>
+                <p>Founder of Alpha School / Prof math</p>
+            </div><div class="team-member">
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah">
+                <h3>Mohammed Fettah</h3>
+                <p>Founder of Alpha School / Prof math</p>
+            </div><div class="team-member">
+                <img src="prof/prof1.jpg" alt="Mohammed Fettah">
+                <h3>Mohammed Fettah</h3>
+                <p>Founder of Alpha School / Prof math</p>
+            </div></div>
     </div>
 </section>
 
     <section id="contact">
         <h2>Contact et Localisation</h2>
         <p><strong>Numéro Téléphone : 0661322388</strong>
-        <p><strong>Adresse :2eme ETAGE، N39 Avenue Al Boustane, Rabat 10200</strong><p>
+        </p><p><strong>Adresse :2eme ETAGE، N39 Avenue Al Boustane, Rabat 10200</strong></p><p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.3483142151726!2d-6.822403837624835!3d33.98358602139949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b4cd793bbb7%3A0x20402df19b8d0c9f!2sAlpha%20School!5e0!3m2!1sen!2sma!4v1732813837389!5m2!1sen!2sma" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </section>
+    </p></section>
 
     <footer>
-        <p>Suivez-nous sur <a href="https://www.instagram.com/alphaaa_school?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a></p>
-        <p>&copy; 2024 Alpha School - Tous droits réservés.</p>
+        <p>Suivez-nous sur <a href="https://www.instagram.com/alphaaa_school?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a></p>
+        <p>© 2024 Alpha School - Tous droits réservés.</p>
     </footer>
 
 <script>
@@ -597,7 +660,7 @@ function scrollGallery(direction) {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const teamItems = document.querySelector('.team-items');
-    const itemsWidth = teamItems.scrollWidth; // Total width of items
+    let itemsWidth = teamItems.scrollWidth; // Total width of items
     const containerWidth = teamItems.parentElement.offsetWidth;
 
     // Clone items dynamically for seamless scrolling
@@ -605,6 +668,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const clonedItem = teamItems.firstElementChild.cloneNode(true);
         teamItems.appendChild(clonedItem); // Clone the first item and append it
     }
+
+    // Function to update item widths and re-clone if necessary (for resizing)
+    const updateScroll = () => {
+        itemsWidth = teamItems.scrollWidth;
+        if (teamItems.scrollWidth < itemsWidth * 2) {
+            while (teamItems.scrollWidth < itemsWidth * 2) {
+                const clonedItem = teamItems.firstElementChild.cloneNode(true);
+                teamItems.appendChild(clonedItem);
+            }
+        }
+    };
+
+    // Handle container resize to adjust scrolling behavior
+    window.addEventListener('resize', updateScroll);
 
     // Make the scrolling continuous by manipulating the scroll position
     setInterval(() => {
@@ -616,9 +693,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 20); // Adjust the speed of scrolling by changing the interval value
 });
 </script>
-</body>
-</html>
 
-</body>
 
-</html>
+
+
+
+
+</body></html>
