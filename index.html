@@ -25,42 +25,45 @@
             overflow-x: hidden;
         }
 
-        /* Header Styles */
+/* Header Styles */
 header {
     background-color: #0a3865;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 17px 5%;
+    padding: 10px 5%; /* Reduced padding for better mobile view */
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 1000;
+    transition: all 0.3s ease-in-out; /* Smooth transition for header */
 }
 
-/* Styling for the header title */
+/* Header Title Styling */
 header h1 {
-    font-family: math;
+    font-family: 'Math', serif;
     font-weight: 700;
-    font-size: 3rem; /* Adjusted font size for better fit */
+    font-size: 2rem; /* Adjusted font size for smaller header */
     display: flex;
-    align-items: center; /* Center the text and logo vertically */
+    align-items: center;
     margin: 0;
 }
 
-/* Styling for the logo */
+/* Logo Styling */
 header .logo {
-    width: 100px; /* Adjust logo size */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 10px; /* Space between logo and text */
+    width: 80px; /* Adjusted logo size for smaller header */
+    height: auto;
+    margin-right: 10px;
 }
 
-/* Navigation Styles */
+/* Navigation Styling */
 nav {
     display: flex;
     gap: 20px;
 }
 
+/* Navigation Links */
 nav a {
     color: white;
     text-decoration: none;
@@ -70,58 +73,152 @@ nav a {
     transition: color 0.3s ease;
 }
 
-/* Hover effect for nav links */
+/* Hover Effect for Navigation Links */
 nav a:hover {
-    color: #1D72B8; /* Light blue on hover */
+    color: #1D72B8; /* Light blue color on hover */
 }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 43, 91, 0.8), rgba(0, 43, 91, 0.8)), url('images/logo.png') no-repeat center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 5%;
-            animation: fadeIn 1.5s ease-in-out;
-            margin-top: 80px; /* Offset header */
-        }
+/* Hamburger Menu for Mobile */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other content */
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* Hamburger Menu Bars */
+.hamburger-menu div {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 5px;
+}
 
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px; /* Adjust padding for mobile */
+    }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            animation: fadeIn 2s ease-in-out;
-        }
+    header h1 {
+        font-size: 1.8rem; /* Adjust font size for mobile */
+    }
 
-        .cta-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #1D72B8; /* Blue */
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+    nav {
+        display: none; /* Hide navigation links initially */
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        position: absolute;
+        top: 60px; /* Adjust based on the header height */
+        left: 0;
+        width: 100%;
+        background-color: #0a3865; /* Same as header background */
+        padding: 20px 0;
+        z-index: 999;
+        transform: translateY(-100%); /* Hide menu off-screen */
+        transition: transform 0.3s ease-in-out;
+    }
 
-        .cta-btn:hover {
-            background-color: #005691; /* Darker blue */
-        }
+    nav.active {
+        transform: translateY(0); /* Show the menu */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Show hamburger menu */
+    }
+
+    nav a {
+        font-size: 1.2rem; /* Adjust font size for mobile */
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 43, 91, 0.7), rgba(0, 43, 91, 0.7)), url('images/logo.png') no-repeat center/cover;
+    color: white;
+    text-align: center;
+    padding: 120px 5%;
+    animation: fadeIn 1.5s ease-in-out;
+    margin-top: 80px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Call to Action Button */
+.cta-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #1D72B8;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #005691;
+}
+
+/* Responsive Adjustments for Hero Section */
+@media (max-width: 768px) {
+    .hero {
+        padding: 80px 10%;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        max-width: 90%; /* Allow more space on smaller screens */
+    }
+}
+
 
         /* Section Styles */
         section {
@@ -378,7 +475,7 @@ section p {
             color: #005691;
         }
 
-        /* Animated Phrases */
+* Animated Phrases */
 .phrases-container {
     position: relative;
     width: 100%;
@@ -437,44 +534,6 @@ section p {
             display: block;
         }
 
-        /* Media Queries */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 10px;
-                margin-top: 10px;
-            }
-
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .cta-btn {
-                font-size: 1rem;
-            }
-
-            section {
-                padding: 20px;
-            }
-
-            .gallery-container {
-                width: 100%;
-            }
-
-            .team-container {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
     </style>
 </head>
 
@@ -491,13 +550,24 @@ section p {
         <a href="#equipe">Équipe</a>
         <a href="#contact">Contact</a>
     </nav>
+    <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </header>
 
 
-    <div class="hero">
-        <h2>Bienvenue à Alpha School</h2>
-        <p>Notre Centre offre un environnement stimulant où chaque élève peut développer ses compétences académiques, sociales et personnelles. Nos programmes sont conçus pour encourager l'esprit d'initiative, la créativité et la rigueur, tout en préparant les étudiants aux défis de demain.</p>
-    </div>
+
+
+
+
+
+<div class="hero">
+    <h2>Bienvenue à Alpha School</h2>
+    <p>Notre Centre offre un environnement stimulant où chaque élève peut développer ses compétences académiques, sociales et personnelles. Nos programmes sont conçus pour encourager l'esprit d'initiative, la créativité et la rigueur, tout en préparant les étudiants aux défis de demain.</p>
+</div>
+
 
 <div class="phrases-container">
     <div class="phrase">
@@ -755,6 +825,13 @@ document.addEventListener("DOMContentLoaded", () => {
             teamItems.scrollLeft += 1; // Scroll by 1px to simulate continuous movement
         }
     }, 20); // Adjust the speed of scrolling by changing the interval value
+});
+</script>
+<script>
+// Toggle navigation menu on mobile
+document.querySelector('.hamburger-menu').addEventListener('click', function() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
 });
 </script>
 
