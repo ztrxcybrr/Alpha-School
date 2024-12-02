@@ -601,10 +601,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const containerWidth = teamItems.parentElement.offsetWidth;
 
     // Clone items dynamically for seamless scrolling
-    while (teamItems.scrollWidth < containerWidth * 2) {
-        const clone = teamItems.innerHTML;
-        teamItems.innerHTML += clone; // Append clones until it fills the container
+    while (teamItems.scrollWidth < itemsWidth * 2) {
+        const clonedItem = teamItems.firstElementChild.cloneNode(true);
+        teamItems.appendChild(clonedItem); // Clone the first item and append it
     }
+
+    // Make the scrolling continuous by manipulating the scroll position
+    setInterval(() => {
+        if (teamItems.scrollLeft >= itemsWidth) {
+            teamItems.scrollLeft = 0; // Reset scroll position to create a seamless loop
+        } else {
+            teamItems.scrollLeft += 1; // Scroll by 1px to simulate continuous movement
+        }
+    }, 20); // Adjust the speed of scrolling by changing the interval value
 });
 </script>
 </body>
