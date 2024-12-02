@@ -78,62 +78,85 @@ nav a:hover {
     color: #1D72B8; /* Light blue color on hover */
 }
 
-/* Hamburger Menu for Mobile */
+
+
+
+/* Hamburger Menu Styles */
 .hamburger-menu {
-    display: none;
+    display: none; /* Hide by default */
     flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 1001; /* Ensure it's above other content */
-}
-
-/* Hamburger Menu Bars */
-.hamburger-menu div {
+    justify-content: space-between;
     width: 30px;
-    height: 4px;
-    background-color: white;
-    border-radius: 5px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1100; /* Ensure it's above everything else */
 }
 
-/* Mobile Navigation Styles */
+.hamburger-menu .bar {
+    width: 100%;
+    height: 4px;
+    background-color: #fff; /* White bars to make it visible */
+    border-radius: 5px; /* Rounded corners for a smoother look */
+    transition: all 0.3s ease;
+}
+
+/* For Mobile: Display Hamburger and Hide Nav */
 @media (max-width: 768px) {
-    header {
-        padding: 10px 20px; /* Adjust padding for mobile */
-    }
-
-    header h1 {
-        font-size: 1.8rem; /* Adjust font size for mobile */
-    }
-
     nav {
-        display: none; /* Hide navigation links initially */
+        display: none; /* Hide nav by default on small screens */
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        background-color: #0a3865;
         position: absolute;
-        top: 60px; /* Adjust based on the header height */
-        left: 0;
+        top: 70px; /* Adjust depending on your header height */
         width: 100%;
-        background-color: #0a3865; /* Same as header background */
+        left: 0;
         padding: 20px 0;
-        z-index: 999;
-        transform: translateY(-100%); /* Hide menu off-screen */
-        transition: transform 0.3s ease-in-out;
-    }
-
-    nav.active {
-        transform: translateY(0); /* Show the menu */
-    }
-
-    .hamburger-menu {
-        display: flex; /* Show hamburger menu */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     nav a {
-        font-size: 1.2rem; /* Adjust font size for mobile */
-        text-align: center;
+        padding: 10px;
+        font-size: 1.2rem;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: color 0.3s ease;
+    }
+
+    .hamburger-menu {
+        display: flex;
     }
 }
+
+/* When Hamburger Menu is Active (Animate Icon) */
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+    transform-origin: 1px 1px;
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    transform-origin: 1px 1px;
+}
+
+/* Slide Down Navigation (Toggle Active Class) */
+nav.active {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+
+
 
 
 
@@ -220,36 +243,38 @@ nav a:hover {
 }
 
 
-        /* Section Styles */
-        section {
-            background-color: whitesmoke;
-            border-radius: 30px;
-            margin: 30px auto;
-            padding: 20px;
-            width: 89%;
-            max-width: 1150px;
-            box-shadow: 0 20px 13px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1.5s forwards;
-        }
+/* Section Styles */
+section {
+    background-color: whitesmoke;
+    border-radius: 30px;
+    margin: 30px auto;
+    padding: 20px;
+    width: 90%; /* Slightly reduced for better mobile handling */
+    max-width: 1150px;
+    box-shadow: 0 20px 13px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s forwards;
+}
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* Fade In Animation for Section */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Centering Section Heading (h2) */
 section h2 {
     color: #3c8be3; /* Cyan */
     margin-bottom: 20px;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 2.5rem; /* Adjusted for better readability */
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-align: center; /* Centering horizontally */
+    text-align: center; /* Ensuring it's centered */
 }
 
 /* Centering Section Paragraph (p) */
@@ -259,11 +284,48 @@ section p {
     font-size: 1.1rem;
     margin-bottom: 20px;
     font-family: 'Open Sans', sans-serif;
-    text-align: center; /* Centering horizontally */
-    max-width: 80%; /* Optional: limiting the width to avoid overly long lines */
-    margin-left: auto; /* Centering horizontally */
-    margin-right: auto; /* Centering horizontally */
+    text-align: center;
+    max-width: 80%; /* Limits text width for readability */
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    section {
+        width: 95%; /* Making section a bit wider for mobile */
+        padding: 15px; /* Reducing padding to give more space */
+    }
+
+    section h2 {
+        font-size: 1.8rem; /* Smaller font size for mobile */
+        margin-bottom: 15px; /* Decreased space for a tighter look */
+    }
+
+    section p {
+        font-size: 1rem; /* Slightly smaller text for better mobile fit */
+        line-height: 1.6; /* Reduced line-height for compact text */
+    }
+}
+
+/* Large Screen / Desktop Styling */
+@media (min-width: 1200px) {
+    section {
+        width: 85%; /* More spacious on large screens */
+    }
+
+    section h2 {
+        font-size: 3rem; /* Larger font size for readability on large screens */
+    }
+
+    section p {
+        font-size: 1.2rem; /* Slightly larger font size for desktop */
+    }
+}
+
+ 
+
+ 
 
 /* Gallery Section */
 #galerie {
@@ -475,11 +537,11 @@ section p {
             color: #005691;
         }
 
-* Animated Phrases */
+/* Animated Phrases */
 .phrases-container {
     position: relative;
     width: 100%;
-    height: 120px; /* Adjust to your content's height */
+    height: 150px; /* Increased container height */
     overflow: hidden; /* Ensure smooth transitions */
 }
 
@@ -491,10 +553,9 @@ section p {
     opacity: 0;
     animation: fadeInOut 6s infinite;
     text-align: center;
-    font-size: 1.6rem; /* Adjust as needed */
+    font-size: 2rem; /* Increased font size */
     color: #002b5b; /* Text color */
     transition: opacity 0.5s ease-in-out;
-    font-family: ui-rounded;
 }
 
 .phrase.active {
@@ -524,15 +585,29 @@ section p {
         transform: translate(-50%, -50%) scale(1.2);
     }
 }
-       
-        /* Phrases content */
-        .phrase {
-            display: none;
-        }
 
-        .active {
-            display: block;
-        }
+/* Phrases content */
+.phrase {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .phrases-container {
+        height: 180px; /* Increased container height for smaller screens */
+    }
+
+    .phrase {
+        font-size: 1.6rem; /* Slightly smaller font size on mobile */
+    }
+}
+
+
+
 
     </style>
 </head>
@@ -551,11 +626,13 @@ section p {
         <a href="#contact">Contact</a>
     </nav>
     <div class="hamburger-menu">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 </header>
+
+
 
 
 
@@ -571,24 +648,37 @@ section p {
 
 <div class="phrases-container">
     <div class="phrase">
-        Alpha School est le centre de l'éducation d'excellence, accompagnant les élèves du collège et lycée.
+        Alpha School, un lieu d'excellence pour l'apprentissage.
     </div>
     <div class="phrase">
-        Alpha School, centre d'apprentissage, offre un cadre d'excellence pour les collégiens et lycéens.
+        Rejoignez-nous pour une éducation de qualité.
     </div>
     <div class="phrase">
-        Alpha School garantit un soutien scolaire de haut niveau pour les élèves du collège et du lycée.
+        Alpha School, où chaque élève trouve sa voie.
     </div>
     <div class="phrase">
-        Alpha School inspire les élèves à atteindre leur plein potentiel grâce à une pédagogie innovante et personnalisée.
+        Développez vos talents avec des méthodes modernes.
     </div>
     <div class="phrase">
-        À Alpha School, l'excellence académique et le développement personnel vont de pair pour garantir la réussite des élèves.
+        Apprentissage personnalisé, réussite garantie.
+    </div>
+    <div class="phrase">
+        Alpha School : la clé de votre avenir.
+    </div>
+    <div class="phrase">
+        L'éducation innovante au service de votre succès.
+    </div>
+    <div class="phrase">
+        Alpha School, un cadre idéal pour grandir et réussir.
+    </div>
+    <div class="phrase">
+        Un enseignement sur mesure pour chaque élève.
     </div>
     <div class="phrase active">
-        Rejoignez Alpha School, un établissement où chaque élève est accompagné pour exceller et s'épanouir.
+        Rejoignez Alpha School, un centre d'excellence éducative.
     </div>
 </div>
+
 
     <section id="apropos">
         <h2>À propos de nous</h2>
