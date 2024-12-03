@@ -5,8 +5,12 @@
     <link rel="icon" href="images/logo.png" type="image/x-icon">
     <meta name="description" content="Découvrez Alpha School, un établissement d'enseignement de qualité à Rabat, Maroc.">
     <meta name="keywords" content="école, éducation, Rabat, Maroc, excellence académique, Alpha School">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;family=Roboto:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet">
-    <style>
+<style>
         /* Global Styles */
         * {
             margin: 0;
@@ -352,7 +356,7 @@ section p {
 
 .gallery-item {
     width: 100%;
-    max-width: 33%; /* Ensures images take up a third of the width */
+    max-width: 100%; /* Ensures images take up a third of the width */
     border-radius: 12px;
     margin: 0 10px;
     object-fit: cover; /* Makes sure images and videos are resized proportionally */
@@ -607,6 +611,86 @@ section p {
 }
 
 
+.owl-carousel .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+/* Item text visibility on hover */
+.item-text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.item:hover .item-text {
+    opacity: 1;
+}
+
+/* Ensure items are properly positioned in the carousel */
+.owl-carousel .item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;  /* Increased height for larger items */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures content is clipped and doesn't overflow */
+}
+
+.gallery-item {
+    width: 100%;
+    height: 100%; /* Ensure image/video fits the container's height */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    object-position: center; /* Ensure images are centered */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure responsive behavior */
+@media screen and (max-width: 768px) {
+    .owl-carousel .item {
+        height: 300px; /* Adjust item height on tablets */
+    }
+
+    .gallery-item {
+        object-fit: contain; /* For smaller screens, fit images within the container */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .owl-carousel .item {
+        height: 250px; /* Adjust item height on mobile */
+    }
+
+    .gallery-item {
+        object-fit: contain; /* Maintain fitting on smaller devices */
+    }
+}
+
+
+
+
+
+
 
 
     </style>
@@ -685,21 +769,34 @@ section p {
         <p>Alpha School est un établissement éducatif de renom, dédié à l'excellence académique et au développement global des élèves. Nous proposons un environnement d'apprentissage stimulant pour les niveaux collège et lycée, avec des programmes adaptés pour favoriser la réussite scolaire, la créativité et la responsabilité.</p>
     </section>
 
-<section id="galerie">
-    <h2>Galerie</h2>
-    <div class="gallery-container">
-        <button class="gallery-button left" onclick="scrollGallery('left')">❮</button>
-        <div class="gallery-items">
-            <video src="videos/alpha_video.mp4" class="gallery-item" controls></video>
-            <img src="images/gal1.png" alt="Événement 2" class="gallery-item">            
-            <img src="images/logo.png" alt="Événement 2" class="gallery-item">
-            <img src="images/gal1.png" alt="Événement 2" class="gallery-item">
-            <img src="images/logo.png" alt="Événement 2" class="gallery-item">
-            <img src="images/gal1.png" alt="Événement 2" class="gallery-item">
+<section id="galerie" class="py-5">
+    <div class="container text-center">
+        <h2 class="display-4 mb-4">Galerie</h2>
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <video src="videos/alpha_video.mp4" class="gallery-item" controls></video>
+                <div class="item-text">This is a video about our event.</div>
+            </div>
+            <div class="item">
+                <img src="images/gal1.png" alt="Événement 1" class="gallery-item">
+                <div class="item-text">This is an image about our event.</div>
+            </div>
+            <div class="item">
+                <img src="images/logo.png" alt="Événement 2" class="gallery-item">
+                <div class="item-text">Here is another image description.</div>
+            </div>
+            <div class="item">
+                <img src="images/gal1.png" alt="Événement 3" class="gallery-item">
+                <div class="item-text">Another cool event image!</div>
+            </div>
+            <div class="item">
+                <img src="images/logo.png" alt="Événement 4" class="gallery-item">
+                <div class="item-text">The final event image description.</div>
+            </div>
         </div>
-        <button class="gallery-button right" onclick="scrollGallery('right')">❯</button>
     </div>
 </section>
+
 
 
 
@@ -851,36 +948,44 @@ section p {
             });
         });
     </script>
-    <script>
+ <script>
 function scrollGallery(direction) {
     const galleryItems = document.querySelector('.gallery-items');
-    const itemWidth = document.querySelector('.gallery-item').offsetWidth;
+    const itemWidth = document.querySelector('.gallery-item').offsetWidth + 20; // Include margin between items
+    const totalItems = document.querySelectorAll('.gallery-item').length;
     const containerWidth = document.querySelector('.gallery-container').offsetWidth;
     const totalWidth = galleryItems.scrollWidth;
-    
     let currentPosition = parseInt(galleryItems.style.transform.replace('translateX(', '').replace('px)', '') || 0);
-    
-    // Scroll right
+
+    // Scroll right (to the left)
     if (direction === 'right') {
         currentPosition -= itemWidth; // Scroll left by one item width
-        if (Math.abs(currentPosition) >= totalWidth) {
-            currentPosition = 0; // Reset position to create a seamless loop
+
+        // If we've reached the end of the gallery, loop to the start
+        if (Math.abs(currentPosition) >= totalWidth - containerWidth) {
+            currentPosition = 0; // Reset to the start of the gallery
         }
     }
-    // Scroll left
+    // Scroll left (to the right)
     else if (direction === 'left') {
         currentPosition += itemWidth; // Scroll right by one item width
+
+        // If we're at the start, loop to the last item
         if (currentPosition >= 0) {
-            currentPosition = -(totalWidth - containerWidth); // If it reaches the start, reset to the last image
+            currentPosition = -(totalWidth - containerWidth); // Go to the last item
         }
     }
 
-    // Apply the transformation
-    galleryItems.style.transition = "transform 0.5s ease";
+    // Apply the transformation with smooth transition
+    galleryItems.style.transition = "transform 0.5s ease-in-out";
     galleryItems.style.transform = `translateX(${currentPosition}px)`;
 }
 
-</script>
+
+
+
+ </script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const teamItems = document.querySelector('.team-items');
@@ -923,6 +1028,40 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
     const nav = document.querySelector('nav');
     nav.classList.toggle('active');
 });
+</script>
+<script>
+$(document).ready(function() {
+    $(".owl-carousel").owlCarousel({
+        loop: true,             // Continuous loop
+        margin: 20,             // Increase margin for better spacing
+        nav: false,             // Disable next/prev buttons
+        items: 1,               // Show 1 item by default
+        autoplay: true,         // Auto slide the items
+        autoplayTimeout: 3000,  // Slide every 3 seconds
+        autoplayHoverPause: false, // Stop autoplay on hover
+        responsive: {
+            // For small screens like mobile (max-width: 480px)
+            0: {
+                items: 1,       // Show 1 item on mobile
+                margin: 5,       // Smaller margin for mobile
+                autoplayTimeout: 2500 // Faster slide for mobile devices
+            },
+            // For medium screens like tablets (max-width: 768px)
+            600: {
+                items: 2,       // Show 2 items on tablet screens
+                margin: 20,      // Adjust margin for tablet
+                autoplayTimeout: 3000 // Normal slide time for tablet
+            },
+            // For large screens like desktops (min-width: 1000px)
+            1000: {
+                items: 3,       // Show 3 items on larger screens
+                margin: 30,      // Increase margin for larger screens
+                autoplayTimeout: 3500 // Slower slide time for larger screens
+            }
+        }
+    });
+});
+
 </script>
 
 
